@@ -1,10 +1,12 @@
-<ul>
-    <li><a href="">Portrait</a></li>
-    <li><a href="">Place</a></li>
-    <li><a href="">Blue</a></li>
-    <li><a href="">Green</a></li>
-    <li><a href="">Object</a></li>
-</ul>
+<div style="width: 100%">
+    <ul>
+        <li><a href="">Portrait</a></li>
+        <li><a href="">Place</a></li>
+        <li><a href="">Blue</a></li>
+        <li><a href="">Green</a></li>
+        <li><a href="">Object</a></li>
+    </ul>
+</div>
 
 <style>
 ul{
