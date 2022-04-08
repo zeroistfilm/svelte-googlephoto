@@ -50,13 +50,17 @@
 
 <div class="contents center ">
     <div class="left">
-        {#each cats1 as { id, name }, i}
-            <img class="center" src={name}>
+        {#each cats1 as {id, name}, i}
+            <figure>
+                <img class="" src={name}>
+            </figure>
         {/each}
     </div>
     <div class="right">
-        {#each cats2 as { id, name }, i}
-            <img class="center" src={name}>
+        {#each cats2 as {id, name}, i}
+            <figure>
+            <img class="" src={name}>
+                </figure>
         {/each}
     </div>
 </div>
@@ -65,38 +69,41 @@
 <style>
 
 
+    img {
+        width: 80%;
+        height: auto;
+        float: left;
+        margin-bottom: 20%;
+        margin-left: 10%;
+        position: relative;
+    }
 
-img{
-    width: 80%;
-    height: auto;
-    float: left;
-    margin-bottom: 100px;
-    position: relative;
-}
-.navbar{
-    height: 60px;
+    .navbar {
+        height: 60px;
 
 
-}
-.contents{
-    max-width: 2000px;
-}
+    }
 
-.center{
-    margin-left: auto;
-    margin-right: auto;
-}
+    .contents {
+        max-width: 2000px;
+    }
 
-.left{
-    width: 50%;
-    height: 100px;
-    /*background-color: black;*/
-    float: left;
-}
-.right{
-    width: 50%;
-    height: 100px;
-    /*background-color: red;*/
-    float: left;
-}
+    .center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .left {
+        width: 50%;
+        height: 100px;
+        /*background-color: black;*/
+        float: left;
+    }
+
+    .right {
+        width: 50%;
+        height: 100px;
+        /*background-color: red;*/
+        float: left;
+    }
 </style>
