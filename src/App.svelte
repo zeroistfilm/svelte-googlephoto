@@ -1,90 +1,51 @@
+
+
+
 <script>
-    import Nested from './Nested.svelte';
+
+
+
     import Menu from './Menu.svelte';
+    import ImageSlot from "./ImageSlot.svelte";
 
-    let cats1 = [
-        {
-            id: 'J---aiyznGQ',
-            name: 'https://static.wixstatic.com/media/e23135_0c56e35d71dd4b2baf1c5ca96d0c4c52~mv2.jpg/v1/fill/w_360,h_537,q_90/e23135_0c56e35d71dd4b2baf1c5ca96d0c4c52~mv2.webp%201x,%20https://static.wixstatic.com/media/e23135_0c56e35d71dd4b2baf1c5ca96d0c4c52~mv2.jpg/v1/fill/w_720,h_1074,q_90/e23135_0c56e35d71dd4b2baf1c5ca96d0c4c52~mv2.webp%202x,%20https://static.wixstatic.com/media/e23135_0c56e35d71dd4b2baf1c5ca96d0c4c52~mv2.jpg/v1/fill/w_1080,h_1611,q_90/e23135_0c56e35d71dd4b2baf1c5ca96d0c4c52~mv2.webp%203x,%20https://static.wixstatic.com/media/e23135_0c56e35d71dd4b2baf1c5ca96d0c4c52~mv2.jpg/v1/fill/w_1440,h_2148,q_90/e23135_0c56e35d71dd4b2baf1c5ca96d0c4c52~mv2.webp%204x,%20https://static.wixstatic.com/media/e23135_0c56e35d71dd4b2baf1c5ca96d0c4c52~mv2.jpg/v1/fill/w_1717,h_2561,q_90/e23135_0c56e35d71dd4b2baf1c5ca96d0c4c52~mv2.webp%205x'
-        },
-        {
-            id: 'J---aiyznGQ',
-            name: 'https://static.wixstatic.com/media/e23135_7fc60156b51d4f2c95e590ed917b60e0~mv2.jpg/v1/fill/w_385,h_385,q_90/e23135_7fc60156b51d4f2c95e590ed917b60e0~mv2.webp'
-        },
-        {
-            id: 'J---aiyznGQ',
-            name: 'https://static.wixstatic.com/media/e23135_d0024c90b90e446a99ab232a6bc0e416~mv2.jpg/v1/fill/w_360,h_540,q_90/e23135_d0024c90b90e446a99ab232a6bc0e416~mv2.jpg'
-        },
-        {
-            id: 'J---aiyznGQ',
-            name: 'https://static.wixstatic.com/media/e23135_ca5ea0f739e34fa3b34c535a203f27f5~mv2.jpg/v1/fill/w_360,h_540,q_90/e23135_ca5ea0f739e34fa3b34c535a203f27f5~mv2.jpg'
-        },
-
-    ];
-
-    let cats2 = [
-        {
-            id: 'J---aiyznGQ',
-            name: 'https://static.wixstatic.com/media/e23135_13bd14f0d01d4ab49d796b19a4c4209c~mv2.jpg/v1/fill/w_640,h_794,q_90/e23135_13bd14f0d01d4ab49d796b19a4c4209c~mv2.webp'
-        },
-        {
-            id: 'J---aiyznGQ',
-            name: 'https://static.wixstatic.com/media/e23135_b0dc8f149cd6460ba12661189bcbe876~mv2.jpg/v1/fill/w_640,h_428,q_90/e23135_b0dc8f149cd6460ba12661189bcbe876~mv2.webp'
-        },
-        {
-            id: 'J---aiyznGQ',
-            name: 'https://static.wixstatic.com/media/e23135_25a25ae02e034ee198c4a4f3581b1c89~mv2.jpg/v1/fill/w_640,h_854,q_90/e23135_25a25ae02e034ee198c4a4f3581b1c89~mv2.webp'
-        },
-        {
-            id: 'J---aiyznGQ',
-            name: 'https://static.wixstatic.com/media/e23135_e57d9e3a42404d7c93bf6e300166c977~mv2.jpg/v1/fill/w_640,h_960,q_90/e23135_e57d9e3a42404d7c93bf6e300166c977~mv2.webp'
-        },
-
-    ];
+    let imgs1;
+    let imgs2;
+    let page = 'Home';
 
 </script>
 
-<div class="navbar">
-    <Menu id="menu"/>
-</div>
 
-<div class="contents center ">
-    <div class="left">
-        {#each cats1 as {id, name}, i}
-            <figure>
-                <img class="" src={name}>
-            </figure>
-        {/each}
-    </div>
-    <div class="right">
-        {#each cats2 as {id, name}, i}
-            <figure>
-            <img class="" src={name}>
-                </figure>
-        {/each}
-    </div>
+<Menu id="menu" bind:page={page} bind:imgs1={imgs1} bind:imgs2={imgs2}/>
+
+<div class="wrap ">
+    {#if page === 'Home'}
+        <img class="mainImage"
+             src="https://static.wixstatic.com/media/e23135_668bb694d4c84c618ffdf76b44c6c31b~mv2.jpg/v1/fill/w_980,h_948,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/e23135_668bb694d4c84c618ffdf76b44c6c31b~mv2.jpg" alt="mainimg">
+
+    {:else}
+
+        <ImageSlot classes="left" bind:list={imgs1}/>
+        <ImageSlot classes="right" bind:list={imgs2}/>
+    {/if}
+
 </div>
 
 
 <style>
-
-
-    img {
-        width: 80%;
-        height: auto;
-        float: left;
-        margin-bottom: 20%;
-        margin-left: 10%;
-        position: relative;
+    .mainImage {
+        max-width: 100%;
+        max-height: 100%;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        overflow: auto;
+        position: fixed;
     }
 
-    .navbar {
-        height: 60px;
 
-
-    }
-
-    .contents {
+    .wrap {
         max-width: 2000px;
     }
 
@@ -93,17 +54,5 @@
         margin-right: auto;
     }
 
-    .left {
-        width: 50%;
-        height: 100px;
-        /*background-color: black;*/
-        float: left;
-    }
 
-    .right {
-        width: 50%;
-        height: 100px;
-        /*background-color: red;*/
-        float: left;
-    }
 </style>
