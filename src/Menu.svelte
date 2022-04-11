@@ -9,24 +9,26 @@
         imgs2 = []
         let size=1;
         console.log(value)
-        let albumID;
+        let albumId;
         if(value==='Portrait'){
-            albumID='AA7pFRVHCBMjiqCJTysvn4yXf9DysHNbVoYVOyF9WIko4VDYGqlQ-bE97FAeAS0bch9r3Pr_YxMz';
+            albumId='AA7pFRWPEDn4rlMlaxSUHz7NLsEF9OFEKR7dL5TUNKpM7qzyQ9Ul68pXnOY7ahu8nbLx4piWBHtn';
         }else if(value==='Place'){
-            albumID='AA7pFRXZNRKZL-wzJxKAdQ1hinYz669SVctCr3TEr9DxDjkb0tBZ-dHO-5Ps2JLZVS0YQwSyfQDM';
+            albumId='AA7pFRW9DfUY4jNeX7Sl6q-6SqmHr3vwxo5R8cxhZpPnN9dbgfzZYFJhEq2wlON8KWxuNwzQOR_J';
         }else if(value==='Blue'){
-            albumID='AA7pFRUp5qRMXwC-N5Fw18lVHq0V2rp9EieKYs9HZp_mmwWLJ0QGHN_spvVh7ju9W1tOqR5x12PD';
+            albumId='AA7pFRUVZhAfswul1RNq0cIa564fdR4G-_2rCQ5AkpBldI35LaqgOCgoXl9m9THOtgVn5bouj0E1';
         }else if(value==='Green'){
-            albumID='AA7pFRWGycpqN0cYjNMqiaiCgyabMxRtm0lbsQfca8MuVB71OnqynWOoHjOeDGsXfYbbRqzjF_d6';
+            albumId='AA7pFRX5NPYf_mp_jOcqFy2AHBq4uBwjNjgdqtKpmvwlL8gYH1WFu2jqWxSCzv5gNbRVEJBI5T0k';
         }else if(value==='Object'){
-            albumID='AA7pFRVUmnmK67ggTYFYmPOM1xtzA1rQqEl0Bb8pJDFG8YdZMQtMQv9WGFJ12EoazGW0x5T7amaZ';
+            albumId='AA7pFRUb4rB4bxdCfEpYETJk-3lZGj_S0H6hFxREl70EwyAS0ZHDWJUPiFM5-dXvlSTHZ9VLaBCC';
+        }else if(value==='Wedding'){
+            albumId='AA7pFRUEwEGXHLJvsy8TGLeyPiUpzFHNMaOt4vsPILrn5V8Pi7SKHhkOhAyc1iGvd6O_9KTr4syb';
         }
 
 
-        let res = await fetch(`http://127.0.0.1:8080/getImgWithAlbumID?AlbumID=${albumID}`, {mode:'cors'})
+        let res = await fetch(`http://127.0.0.1:8080/getQueue/?albumId=${albumId}`, {mode:'cors'})
         let imglist = await res.json()
         imglist.photos.map((img, idx) => {
-                if (idx % 2 !== 0) {
+                if (idx % 2 === 0) {
                     imgs1 = [...imgs1, img]
                 } else {
                     imgs2 = [...imgs2, img]
@@ -44,7 +46,8 @@
         <li><a href="/" on:click|preventDefault={()=> {LoadImage('Blue');page='Blue'}} >Blue</a></li>
         <li><a href="/" on:click|preventDefault={()=> {LoadImage('Green');page='Green'}} >Green</a></li>
         <li><a href="/" on:click|preventDefault={()=> {LoadImage('Object');page='Object'}} >Object</a></li>
-        <li><a href="http://localhost:8080/auth/google/callback">auth</a></li>
+        <li><a href="/" on:click|preventDefault={()=> {LoadImage('Wedding');page='Wedding'}} >Wedding</a></li>
+        <li><a href="http://localhost:8080/album">auth</a></li>
     </ul>
 
 </div>

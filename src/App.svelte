@@ -19,7 +19,7 @@
 
 <div class="wrap ">
     {#if page === 'Home'}
-        <img class="mainImage"
+        <img style="width: 800px" class="mainImage"
              src="https://static.wixstatic.com/media/e23135_668bb694d4c84c618ffdf76b44c6c31b~mv2.jpg/v1/fill/w_980,h_948,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/e23135_668bb694d4c84c618ffdf76b44c6c31b~mv2.jpg" alt="mainimg">
 
     {:else}

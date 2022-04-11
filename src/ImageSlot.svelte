@@ -1,11 +1,12 @@
 <script>
     export var list;
     export var classes;
+    let max_width=1000;
 </script>
 
 <div class={classes}>
     {#each list as {id, baseUrl}, i}
-        <img src={baseUrl}>
+        <img src={baseUrl+`=w${max_width}`}>
     {/each}
 </div>
 
@@ -22,7 +23,7 @@
     }
     img:hover {
         transition: all 2s ease;
-        transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+        transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
     }
 
 
