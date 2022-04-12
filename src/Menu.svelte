@@ -25,7 +25,7 @@
         }
 
 
-        let res = await fetch(`http://127.0.0.1:8080/getQueue/?albumId=${albumId}`, {mode:'cors'})
+        let res = await fetch(`http://0.0.0.0:8080/getQueue/?albumId=${albumId}`, {mode:'cors'})
         let imglist = await res.json()
         imglist.photos.map((img, idx) => {
                 if (idx % 2 === 0) {
@@ -47,7 +47,7 @@
         <li><a href="/" on:click|preventDefault={()=> {LoadImage('Green');page='Green'}} >Green</a></li>
         <li><a href="/" on:click|preventDefault={()=> {LoadImage('Object');page='Object'}} >Object</a></li>
         <li><a href="/" on:click|preventDefault={()=> {LoadImage('Wedding');page='Wedding'}} >Wedding</a></li>
-        <li><a href="http://127.0.0.1:8080/album">auth</a></li>
+        <li><a href="http://0.0.0.0:8080/album">auth</a></li>
     </ul>
 
 </div>
