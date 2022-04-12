@@ -26,6 +26,7 @@
 
         <ImageSlot classes="left" bind:list={imgs1}/>
         <ImageSlot classes="right" bind:list={imgs2}/>
+        
     {/if}
 
 </div>
