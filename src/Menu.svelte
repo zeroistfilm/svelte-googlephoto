@@ -3,7 +3,8 @@
     export let page;
     export let imgs1;
     export let imgs2;
-
+    export let windowSize;
+    console.log(windowSize)
     async function LoadImage(value) {
         imgs1 = []
         imgs2 = []
@@ -38,7 +39,7 @@
     }
 </script>
 
-<div class="navbar">
+<div class="{windowSize < 700 ? 'navbar mobileView' : 'navbar webView'}">
     <ul id="menu">
         <li><a href="/" on:click|preventDefault={()=> {LoadImage('Home'); page='Home'}} >Home</a></li>
         <li><a href="/" on:click|preventDefault={()=> {LoadImage('Portrait');page='Portrait'}} >Portrait</a></li>
@@ -57,10 +58,17 @@
         height: 60px;
         width: 100%
     }
+    .mobileView{
+        font-size: x-small;
+    }
+    .webView{
+        font-size: medium;
+    }
 
     ul {
         list-style-type: none;
         float: right;
+
     }
     a{
         text-decoration: none;
@@ -68,7 +76,8 @@
     }
     li {
         display: inline;
-        margin-right: 40px;
+        /*idth: calc(100% / 7 + 15px);*/
+        margin-right: 15px;
         text-decoration: none;
     }
 

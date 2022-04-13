@@ -12,10 +12,13 @@
     let imgs2;
     let page = 'Home';
 
+    let windowSize = innerWidth;
+
+
 </script>
 
 
-<Menu id="menu" bind:page={page} bind:imgs1={imgs1} bind:imgs2={imgs2}/>
+<Menu id="menu" bind:page={page} bind:imgs1={imgs1} bind:imgs2={imgs2} bind:windowSize = {windowSize}/>
 
 <div class="wrap ">
     {#if page === 'Home'}
