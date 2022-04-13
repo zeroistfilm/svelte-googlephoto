@@ -1,8 +1,4 @@
-
-
-
 <script>
-
 
 
     import Menu from './Menu.svelte';
@@ -11,25 +7,28 @@
     let imgs1;
     let imgs2;
     let page = 'Home';
+    let windowWidth;
 
-    let windowSize = innerWidth;
+
 
 
 </script>
 
+<svelte:window bind:innerWidth={windowWidth}/>
 
-<Menu id="menu" bind:page={page} bind:imgs1={imgs1} bind:imgs2={imgs2} bind:windowSize = {windowSize}/>
+<Menu id="menu" bind:page={page} bind:imgs1={imgs1} bind:imgs2={imgs2} bind:windowWidth={windowWidth}/>
 
 <div class="wrap ">
     {#if page === 'Home'}
         <img style="width: 800px" class="mainImage"
-             src="https://static.wixstatic.com/media/e23135_668bb694d4c84c618ffdf76b44c6c31b~mv2.jpg/v1/fill/w_980,h_948,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/e23135_668bb694d4c84c618ffdf76b44c6c31b~mv2.jpg" alt="mainimg">
+             src="https://static.wixstatic.com/media/e23135_668bb694d4c84c618ffdf76b44c6c31b~mv2.jpg/v1/fill/w_980,h_948,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/e23135_668bb694d4c84c618ffdf76b44c6c31b~mv2.jpg"
+             alt="mainimg">
 
     {:else}
 
         <ImageSlot classes="left" bind:list={imgs1}/>
         <ImageSlot classes="right" bind:list={imgs2}/>
-        
+
     {/if}
 
 </div>
