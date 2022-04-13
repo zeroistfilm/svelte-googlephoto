@@ -6,7 +6,7 @@
 
 <div class={classes}>
     {#each list as {id, baseUrl}, i}
-        <img src={baseUrl+`=w${max_width}`}>
+        <img src={baseUrl}>
     {/each}
 </div>
 
