@@ -12,7 +12,7 @@
 
     let key;
     let keyCode;
-    let index = 0;
+    let index = -1;
     let imglist;
     let imgSrc = 'https://0dong.site/imgs/main.jpg';
     let visiable = true;
@@ -91,7 +91,7 @@
 
 <!--<Menu id="menu" bind:page={page} bind:imgs1={imgs1} bind:imgs2={imgs2} bind:windowWidth={windowWidth}/>-->
 <div class="navbar" style="text-align: center">
-    <a class="" href="/">KimYoungDong</a>
+    <a style="color: gray" href="/">KimYoungDong</a>
 </div>
 
 
@@ -121,6 +121,7 @@
         margin:auto;
         position:center;
         foalt: right;
+        color: gray;
     }
 
     .prev-zone {
