@@ -56,7 +56,9 @@
 <style>
     .navbar {
         height: 60px;
-        width: 100%
+        width: 20%;
+        position:center;
+        foalt: right;
     }
     .mobileView{
         font-size: x-small;
