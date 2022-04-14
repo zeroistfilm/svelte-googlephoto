@@ -90,7 +90,10 @@
 <svelte:window bind:innerWidth={windowWidth} on:keydown={handleKeydown}/>
 
 <!--<Menu id="menu" bind:page={page} bind:imgs1={imgs1} bind:imgs2={imgs2} bind:windowWidth={windowWidth}/>-->
-<!--<a href="/">YoungDong</a>-->
+<div class="navbar" style="text-align: center">
+    <a class="" href="/">KimYoungDong</a>
+</div>
+
 
 <div class="wrap ">
     <!--{#if page === 'Home'}-->
@@ -111,6 +114,14 @@
 
 
 <style>
+
+    .navbar {
+        height: 60px;
+        width: 100%;
+        margin:auto;
+        position:center;
+        foalt: right;
+    }
 
     .prev-zone {
         width: 50% !important;
